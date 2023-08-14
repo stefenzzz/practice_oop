@@ -1,0 +1,17 @@
+Options -MultiViews
+RewriteEngine On
+
+Options -Indexes
+
+
+RewriteBase /practice_oop/public/
+RewriteCond %{REQUEST_URI} !(/$|\.) 
+RewriteRule (.*) %{REQUEST_URI}/ [L,R=307]
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
